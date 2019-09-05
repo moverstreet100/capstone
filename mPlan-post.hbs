@@ -1,0 +1,44 @@
+<form  method="POST" id="roles_post_form">
+    {{#if allFields}}
+    <div class="container">
+        <h1>Create Role</h1>
+            <div>
+                <input class="form-control input-sm" type="text" id="form_domain" name="domain" required="true">
+                <span class="error_form" id="domain_error_message"></span>
+                <label>
+                    Target Domain Name
+                </label>	
+            </div>
+            {{#each allFields}}
+            <div>
+                <input class="form-control input-sm" type="text" id="form_{{this.property}}" name="fields[]" required="{{this.required}}">
+                <span class="error_form" id="{{this.property}}_error_message"></span>
+                <label>
+                    {{this.property}}
+                </label>
+            </div>
+            {{/each}}
+        <input type="submit" value="submit" name="submit-button">   
+    </div>
+    {{/if}}
+    {{#if payload}}
+    <div class="container">
+        <h1>Response</h1>
+        <h2>{{ payload }}</h2>
+        {{/if}}
+        {{#if error}}
+        <h2>{{ error.error }}</h2>
+    </div>
+    {{/if}}
+</form>
+
+
+
+{{!-- [{
+	"Type": "mPlan",
+	"Data": {
+		"Type": "mplan",
+		"AssignmentFilter": "or",
+	}
+    left over fields from postman that arent on swagger
+}] --}}

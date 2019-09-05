@@ -1,0 +1,23 @@
+<form method="POST" action="/login">
+  <h1>Movista API Interface</h1>
+  {{#if flashes}}
+  <div class="alert alert-danger" role="alert">
+    {{ flashes }}
+  </div>
+  {{/if}}
+  <div class="form-group">
+    Username<input class="form-control" name="username" type="text" />
+  </div>
+  <div class="form-group">
+    Password<input class="form-control" name="password" type="password" />
+  </div>
+  <button class="btn btn-primary" type="submit">Login</button>
+  <br />
+  <br />
+</form>
+<a href="/loginGithub">
+  <button class="btn btn-secondary">
+    Login with Github
+    <img style="height:30px; width:30px;" src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Ei-sc-github.svg"/>
+  </button>
+</a>

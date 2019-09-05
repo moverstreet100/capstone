@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>API</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body> {{!-- Removed a container from both the body and the div bc it was messing with the css --}}
+    <div id="columns">
+        <div class="column-left">
+            <h1 class="container-fluid">Endpoints</h1>
+            {{#each wantedList}}
+            <button data-name="{{ this }}" class="accordion-endpoint">{{ this }}</button>
+            <div class="panel" class="list-group">
+                <a href="endpoints/{{ this }}/get">
+                    <p data-name="{{ this }}" data-crud="get" class="container-fluid-endpoint">Find</p>
+                </a>
+                <a href="endpoints/{{ this }}/post">
+                    <p data-name="{{ this }}" data-crud="post" class="container-fluid-endpoint">Create</p>
+                </a>
+                <a href="endpoints/{{ this }}/put">
+                    <p data-name="{{ this }}" data-crud="put" class="container-fluid-endpoint">Edit</p>
+                </a>
+                <a href="endpoints/{{ this }}/delete">
+                    <p data-name="{{ this }}" data-crud="delete" class="container-fluid-endpoint">Delete</p>
+                </a>
+            </div>
+            {{/each}}
+            {{!-- <ul class="list-group">
+                {{#each wantedList}}
+                <a href="" data-name="{{ this }}" class="container-fluid endpoint">{{ this }}</a>
+                {{/each}}
+            </ul> --}}
+        </div>
+        <div class="column-center" id="body">
+            {{{ body }}}
+        </div>
+    </div>
+        {{!-- // target is equal where  the action  happened
+
+        document.addEventListener("click", async (e) => {
+            if (e.target.className === "container-fluid-endpoint") {
+                const endpointName = e.target.getAttribute("data-name");
+                const endpointCRUD = e.target.getAttribute("data-crud")
+                await sendEndpoint(endpointName, endpointCRUD);
+            }
+        }); --}}
+    <script>
+
+        async function sendEndpoint(name, crud) {
+            let routeName = name.replace(/\s/g,'').toLowerCase();
+            await fetch(`/endpoints/${routeName}/${crud}`);
+        }
+
+        var acc = document.getElementsByClassName("accordion-endpoint");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            /* Toggle between adding and removing the "active" class,
+            to highlight the button that controls the panel */
+            this.classList.toggle("active");
+
+            /* Toggle between hiding and showing the active panel */
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+            panel.style.display = "none";
+            } else {
+            panel.style.display = "block";
+            }
+        });
+        }
+
+
+    </script>
+
+</body>
+
+</html>

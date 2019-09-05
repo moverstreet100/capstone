@@ -1,0 +1,30 @@
+{
+  "name": "capstone-moverstreet100",
+  "version": "1.0.0",
+  "description": "our project description. For my capstone project I plan on creating a workout generator. My generator will allow a user to create an account or log in to an existing account. From an account a user can either choose one of four predefined plans or ochoose to fill out a survey and have a custom plan created for them. Once the user has a workout plan chosen (if i have enough time) they will have the ability to enter in new maxes and update their workout for growth. The option for custom curated videos for each user is also an option. A user will request exactly what they want out of a video and a trainer will createe thier request and post it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uark-backend-class/capstone-moverstreet100.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uark-backend-class/capstone-moverstreet100/issues"
+  },
+  "homepage": "https://github.com/uark-backend-class/capstone-moverstreet100#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "jquery": "^3.4.1",
+    "mariadb": "^2.1.0",
+    "ramda": "^0.26.1",
+    "request": "^2.88.0",
+    "sequelize": "^5.18.0"
+  }
+}

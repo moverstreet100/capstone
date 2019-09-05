@@ -1,0 +1,35 @@
+<form action="/roles/get" method="POST">
+    <div class="container">
+        <div>
+            <input class="form-control input-sm" type="text" id="form_domain" name="domain" required="true">
+            <span class="error_form" id="domain_error_message"></span>
+            <label>
+                Target Domain Name
+            </label>	
+        </div>
+        <div>
+            <input class="form-control input-sm" type="text" id="form_id_type" name="IDType" required="true">
+            <span class="error_form" id="id_type_error_message"></span>
+            <label>
+                ID Type
+            </label>	
+        </div>
+        <div>
+            <input class="form-control input-sm" type="text" id="form_ID" name="ID" required="true">
+            <span class="error_form" id="ID_error_message"></span>
+            <label>
+                ID
+            </label>	
+        </div>
+        <input type="submit" value="submit" name="submit-button">   
+    </div>
+    {{#if payload}}
+    <div class="container">
+        <h1>Response</h1>
+        <h2>{{ payload }}</h2>
+        {{/if}}
+        {{#if error}}
+        <h2>{{ error.error }}</h2>
+    </div>
+    {{/if}}
+</form>
